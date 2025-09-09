@@ -1,13 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  const showPopupBtn = document.getElementById("showPopupBtn");
   const popup = document.getElementById("popup");
   const closeBtn = document.getElementById("closeBtn");
 
-  // Tampilkan popup setelah 1 detik
-  setTimeout(() => {
+  showPopupBtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-  }, 1000);
+  });
 
-  // Tutup popup ketika tombol ditekan
   closeBtn.addEventListener("click", () => {
     popup.classList.add("hidden");
   });
