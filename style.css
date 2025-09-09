@@ -1,4 +1,13 @@
 /* CYBERPUNK THEME */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Hapus efek tap biru di mobile */
+}
+
 body {
   background-color: #0d0d0d;
   font-family: 'Orbitron', sans-serif;
@@ -25,6 +34,14 @@ body {
   cursor: pointer;
   box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff;
   transition: all 0.2s ease;
+  outline: none;
+  -webkit-appearance: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.cyberpunk-btn:focus {
+  outline: none;
 }
 
 .cyberpunk-btn:hover {
@@ -42,15 +59,17 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(5, 5, 20, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  padding: 20px;
 }
 
+/* Hide when inactive */
 .hidden {
   display: none;
 }
@@ -58,11 +77,23 @@ body {
 /* Popup Box */
 .popup-content {
   background-color: #1a1a2e;
-  padding: 30px;
+  padding: 30px 20px;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 0 15px #ff00cc, 0 0 25px #3333ff;
-  max-width: 300px;
-  width: 90%;
+  max-width: 320px;
+  width: 100%;
   font-size: 20px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .cyberpunk-btn {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+
+  .popup-content {
+    font-size: 18px;
+  }
 }

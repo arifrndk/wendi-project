@@ -3,11 +3,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const popup = document.getElementById("popup");
   const closeBtn = document.getElementById("closeBtn");
 
-  showPopupBtn.addEventListener("click", () => {
+  // Pastikan tombol bisa disentuh di semua perangkat
+  const openPopup = () => {
     popup.classList.remove("hidden");
-  });
+    document.body.style.overflow = "hidden"; // Cegah scroll saat popup terbuka
+  };
 
-  closeBtn.addEventListener("click", () => {
+  const closePopup = () => {
     popup.classList.add("hidden");
+    document.body.style.overflow = ""; // Balikin scroll
+  };
+
+  showPopupBtn.addEventListener("click", openPopup);
+  closeBtn.addEventListener("click", closePopup);
+
+  // OPTIONAL: Tutup popup jika klik di luar kotak
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      closePopup();
+    }
   });
 });
